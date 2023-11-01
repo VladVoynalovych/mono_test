@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <RateProduct />
     </v-main>
   </v-app>
 </template>
 
 <script setup lang="ts">
-  import HelloWorld from '@/components/RateProduct.vue'
+import RateProduct from "@/components/RateProduct/index.vue";
 </script>
