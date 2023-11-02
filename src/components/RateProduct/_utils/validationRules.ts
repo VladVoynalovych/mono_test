@@ -1,6 +1,6 @@
 export const nameRules = [
   (name: string) => {
-    if (!name.length) return "Name is required.";
+    if (!name) return "Name is required.";
     const nameWords = name.trim().split(" ");
 
     return (
@@ -21,7 +21,8 @@ export const emailRules = [
 
 export const phoneRules = [
   (value: string) => {
-    return !!value.length || "Phone is required.";
+    if (!value) return "Phone is required.";
+    return !!value.length;
   },
   (value: string) => {
     return value.startsWith("+380") || "The number should start with '+380'";
