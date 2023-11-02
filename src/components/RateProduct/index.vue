@@ -3,11 +3,11 @@
     <v-card title="Product Review">
       <v-form ref="formRef">
         <rate-product-form
-          :name="formData.name"
-          :email="formData.email"
-          :phone="formData.phone"
-          :rate="formData.rate"
-          :review="formData.review"
+          v-model:name="formData.name"
+          v-model:email="formData.email"
+          v-model:phone="formData.phone"
+          v-model:rate="formData.rate"
+          v-model:review="formData.review"
         />
       </v-form>
       <v-card-actions>
@@ -21,6 +21,8 @@
 import { ref } from "vue";
 import { FormType } from "@/components/RateProduct/_utils/types";
 import RateProductForm from "@/components/RateProductForm/index.vue";
+import db from "@/firebase/init";
+import { collection, addDoc } from "firebase/firestore";
 
 const formRef = ref<HTMLFormElement | null>(null);
 
@@ -34,7 +36,12 @@ const formData = ref<FormType>({
 
 const handleSubmit = () => {
   if (formRef.value?.validate()) {
-    console.log("validated");
+    createReview();
   }
+};
+
+const createReview = async () => {
+  const colRef = collection(db, "reviews");
+  await addDoc(colRef, formData.value);
 };
 </script>
