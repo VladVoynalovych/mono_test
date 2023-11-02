@@ -1,11 +1,9 @@
 <template>
   <v-app>
     <v-main>
-      <RateProduct />
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
-<script setup lang="ts">
-import RateProduct from "@/components/RateProduct/index.vue";
-</script>
+<script setup lang="ts"></script>
