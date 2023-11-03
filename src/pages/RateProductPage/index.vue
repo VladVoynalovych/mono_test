@@ -41,8 +41,9 @@ const formRef = ref<HTMLFormElement | null>(null);
 const formData = ref<FormType>({ ...initialFormData });
 const isReviewLoading = ref(false);
 
-const handleSubmit = () => {
-  if (formRef.value?.validate()) {
+const handleSubmit = async () => {
+  const { valid } = await formRef.value?.validate();
+  if (valid) {
     createReview();
     router.push("/reviews");
   }
