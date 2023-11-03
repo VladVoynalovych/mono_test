@@ -1,6 +1,6 @@
 <template>
-  <v-container class="fill-height flex align-center justify-center">
-    <v-card :loading="isReviewLoading" title="Product Review">
+  <v-container class="fill-height flex align-center justify-center flex-column">
+    <v-card :loading="isReviewLoading" title="Product Review" class="mb-16">
       <v-form ref="formRef">
         <rate-product-form
           v-model:name="formData.name"
@@ -14,6 +14,7 @@
         <v-btn @click="handleSubmit">Submit</v-btn>
       </v-card-actions>
     </v-card>
+    <v-btn @click="router.push('/reviews')">Navigate to Reviews Page</v-btn>
   </v-container>
 </template>
 
