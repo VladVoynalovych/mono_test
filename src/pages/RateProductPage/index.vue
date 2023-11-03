@@ -23,6 +23,7 @@ import { FormType } from "@/pages/RateProductPage/_utils/types";
 import RateProductForm from "@/components/RateProductForm/index.vue";
 import db from "@/firebase/init";
 import { collection, addDoc } from "firebase/firestore";
+import { useRouter } from "vue-router";
 
 const initialFormData: FormType = {
   name: "",
@@ -32,6 +33,8 @@ const initialFormData: FormType = {
   review: "",
 };
 
+const router = useRouter();
+
 const formRef = ref<HTMLFormElement | null>(null);
 
 const formData = ref<FormType>({ ...initialFormData });
@@ -40,6 +43,7 @@ const isReviewLoading = ref(false);
 const handleSubmit = () => {
   if (formRef.value?.validate()) {
     createReview();
+    router.push("/reviews");
   }
 };
 
