@@ -6,13 +6,7 @@ import {
 } from "@/components/RateProduct/_utils/validationRules";
 import { FormType } from "@/components/RateProduct/_utils/types";
 
-withDefaults(defineProps<FormType>(), {
-  name: "",
-  email: "",
-  phone: "+380",
-  rate: "",
-  review: "",
-});
+defineProps<FormType>();
 
 const emit = defineEmits<{
   (e: "update:name", value: string): void;
@@ -25,28 +19,28 @@ const emit = defineEmits<{
 
 <template>
   <v-text-field
-    :model="name"
+    :model-value="name"
     @update:model-value="(value: string) => emit('update:name', value)"
     :rules="nameRules"
     validate-on="blur"
     label="Name"
   ></v-text-field>
   <v-text-field
-    :model="email"
+    :model-value="email"
     @update:model-value="(value: string) => emit('update:email', value)"
     label="Email"
     validate-on="blur"
     :rules="emailRules"
   ></v-text-field>
   <v-text-field
-    :model="phone"
+    :model-value="phone"
     @update:model-value="(value: string) => emit('update:phone', value)"
     label="Phone"
     validate-on="blur"
     :rules="phoneRules"
   ></v-text-field>
   <v-rating
-    :model="rate"
+    :model-value="rate"
     @update:model-value="
       (value: number) => emit('update:rate', value.toString())
     "
@@ -54,7 +48,7 @@ const emit = defineEmits<{
   ></v-rating>
   <v-textarea
     label="Product Review"
-    :model="review"
+    :model-value="review"
     @update:model-value="(value: string) => emit('update:review', value)"
   ></v-textarea>
 </template>
