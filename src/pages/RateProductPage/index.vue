@@ -48,10 +48,14 @@ const handleSubmit = () => {
 };
 
 const createReview = async () => {
-  const colRef = collection(db, "reviews");
   isReviewLoading.value = true;
-  await addDoc(colRef, formData.value);
-  isReviewLoading.value = false;
-  formData.value = { ...initialFormData };
+  try {
+    await addDoc(collection(db, "reviews"), formData.value);
+  } catch (e) {
+    throw e;
+  } finally {
+    isReviewLoading.value = false;
+    formData.value = { ...initialFormData };
+  }
 };
 </script>
