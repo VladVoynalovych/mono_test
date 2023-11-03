@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { FormType } from "@/components/RateProduct/_utils/types";
+import { FormType } from "@/pages/RateProductPage/_utils/types";
 import RateProductForm from "@/components/RateProductForm/index.vue";
 import db from "@/firebase/init";
 import { collection, addDoc } from "firebase/firestore";

@@ -1,10 +1,15 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import RateProduct from "@/components/RateProduct/index.vue";
+import RateProductPage from "@/pages/RateProductPage/index.vue";
+import ReviewsPage from "@/pages/ReviewsPage/index.vue";
 
 const routes = [
   {
     path: "/",
-    component: RateProduct,
+    component: RateProductPage,
+  },
+  {
+    path: "/reviews",
+    component: ReviewsPage,
   },
 ];
 

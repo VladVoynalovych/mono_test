@@ -3,8 +3,8 @@ import {
   emailRules,
   nameRules,
   phoneRules,
-} from "@/components/RateProduct/_utils/validationRules";
-import { FormType } from "@/components/RateProduct/_utils/types";
+} from "@/pages/RateProductPage/_utils/validationRules";
+import { FormType } from "@/pages/RateProductPage/_utils/types";
 
 defineProps<FormType>();
 
