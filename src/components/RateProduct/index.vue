@@ -34,7 +34,7 @@ const initialFormData: FormType = {
 
 const formRef = ref<HTMLFormElement | null>(null);
 
-const formData = ref<FormType>(initialFormData);
+const formData = ref<FormType>({ ...initialFormData });
 const isReviewLoading = ref(false);
 
 const handleSubmit = () => {
@@ -48,6 +48,6 @@ const createReview = async () => {
   isReviewLoading.value = true;
   await addDoc(colRef, formData.value);
   isReviewLoading.value = false;
-  formData.value = initialFormData;
+  formData.value = { ...initialFormData };
 };
 </script>
